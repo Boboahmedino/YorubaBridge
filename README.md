@@ -107,7 +107,3 @@ To run the unit tests inside the `translate` app, run:
 python manage.py test translate
 
 ```
-
-```
-
-```
