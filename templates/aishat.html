@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Olaneye Ahmed Oladapo" />
+  <meta name="description" content="Medinos Dialex — Yoruba to English and English to Yoruba translator." />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Olaneye Aishat | Yoruba Translator</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --card: rgba(255,255,255,.82);
+      --card-border: rgba(148,163,184,.18);
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-2: #06b6d4;
+      --shadow: 0 20px 50px rgba(15, 23, 42, .10);
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(6,182,212,.12), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #eef6ff 45%, #f8fafc 100%);
+      min-height: 100vh;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .soft-shadow { box-shadow: var(--shadow-soft); }
+
+    .hero-glow::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(37,99,235,.25), rgba(6,182,212,.10), rgba(255,255,255,0));
+      filter: blur(20px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .fade-up { animation: fadeUp .7s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pill {
+      border: 1px solid rgba(37,99,235,.15);
+      background: rgba(37,99,235,.06);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 14px 30px rgba(37, 99, 235, .26);
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    textarea::-webkit-scrollbar, .scrollbar::-webkit-scrollbar { width: 10px; }
+    textarea::-webkit-scrollbar-thumb, .scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(100,116,139,.28);
+      border-radius: 999px;
+    }
+    textarea::-webkit-scrollbar-track, .scrollbar::-webkit-scrollbar-track { background: transparent; }
+  </style>
+</head>
+
+<body class="antialiased">
+  <header class="sticky top-0 z-50 border-b border-white/60 bg-white/70 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-18 items-center justify-between py-4">
+        <a href="#home" class="flex items-center gap-3 font-extrabold text-slate-900">
+          <span class="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white soft-shadow">
+            <i class="fa-solid fa-language"></i>
+          </span>
+          <span class="text-xl sm:text-2xl tracking-tight">Olaneye | Yoruba Translator</span>
+        </a>
+
+        <nav class="hidden items-center gap-8 md:flex text-sm font-semibold text-slate-600">
+          <a href="#translator" class="hover:text-blue-600 transition">Translator</a>
+          <a href="#how" class="hover:text-blue-600 transition">How it works</a>
+        </nav>
+
+        <a href="#translator" class="inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold text-white btn-primary transition-transform duration-200">
+          <span>Translate now</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section class="relative pt-10 pb-8 md:pt-16 md:pb-10 fade-up">
+      <div class="hero-glow relative rounded-[30px] p-1">
+        <div class="glass rounded-[28px] px-6 py-10 sm:px-10 sm:py-12 lg:px-12">
+          <div class="max-w-3xl">
+            <span class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold pill text-blue-700">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              Yoruba ↔ English translator
+            </span>
+            <h1 class="mt-5 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              Translate between
+              <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Yoruba and English</span>
+              in one clean page
+            </h1>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+              Type in Yoruba or English, choose the translated language of choice, submit the text, and the translated result appears on the right.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section id="how" class="pb-20 fade-up">
+      <div class="grid gap-5 md:grid-cols-3">
+        <div class="glass rounded-[24px] p-6">
+          <div class="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-blue-50 text-blue-600"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3 class="text-lg font-bold text-slate-900">Type naturally</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Paste or type text in either English or Yoruba.</p>
+        </div>
+        <div class="glass rounded-[24px] p-6">
+          <div class="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-cyan-50 text-cyan-600"><i class="fa-solid fa-arrows-rotate"></i></div>
+          <h3 class="text-lg font-bold text-slate-900">Switch direction</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">Use the dropdown or swap button to reverse the translation.</p>
+        </div>
+        <div class="glass rounded-[24px] p-6">
+          <div class="mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-emerald-50 text-emerald-600"><i class="fa-solid fa-book"></i></div>
+          <h3 class="text-lg font-bold text-slate-900">Read easily</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-600">The translated text appears in a clean panel on the right.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="translator" class="pb-14 md:pb-20 fade-up">
+      <div class="grid gap-6 lg:grid-cols-[1.2fr_0.9fr]">
+        <!-- Input Panel -->
+        <section class="glass rounded-[28px] p-5 sm:p-7 lg:p-8">
+          <div class="mb-6 flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-extrabold tracking-tight text-slate-900">Translator</h2>
+              <p class="mt-1 text-sm text-slate-500">Pick the direction and translate using your backend.</p>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-xs font-semibold text-slate-600">
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+              Input
+            </div>
+          </div>
+
+          <form method="POST" action="{% url 'translate' %}">
+            {% csrf_token %}
+
+            <div class="grid gap-4 sm:grid-cols-[1fr_auto_1fr] sm:items-end">
+              <div>
+                <label for="source_language" class="mb-2 block text-sm font-bold text-slate-700">From</label>
+                <select id="source_language" name="source_language" class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-semibold text-slate-700 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100">
+                  <option value="en" {% if request.POST.source_language == 'en' or not request.POST.source_language %}selected{% endif %}>English</option>
+                  <option value="yo" {% if request.POST.source_language == 'yo' %}selected{% endif %}>Yoruba</option>
+                </select>
+              </div>
+
+              <button id="swapBtn" type="button" class="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 text-slate-600 transition hover:bg-slate-100 hover:text-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-100" aria-label="Swap languages">
+                <i class="fa-solid fa-right-left"></i>
+              </button>
+
+              <div>
+                <label for="target_language" class="mb-2 block text-sm font-bold text-slate-700">To</label>
+                <select id="target_language" name="target_language" class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-semibold text-slate-700 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100">
+                  <option value="yo" {% if request.POST.target_language == 'yo' or not request.POST.target_language %}selected{% endif %}>Yoruba</option>
+                  <option value="en" {% if request.POST.target_language == 'en' %}selected{% endif %}>English</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-6 grid gap-6">
+              <div>
+                <div class="mb-2 flex items-center justify-between gap-3">
+                  <label for="inputText" class="block text-sm font-bold text-slate-700">Text to translate</label>
+                  <span id="inputHint" class="text-xs font-semibold text-slate-500">English → Yoruba</span>
+                </div>
+                <textarea
+                  id="inputText"
+                  name="text"
+                  rows="10"
+                  class="w-full resize-none rounded-[24px] border border-slate-200 bg-white px-5 py-4 text-[15px] leading-7 text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                  placeholder="Type here..."
+                >{{ request.POST.text|default:'' }}</textarea>
+              </div>
+
+              <div class="flex flex-col gap-3 sm:flex-row">
+                <button type="submit" class="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl px-5 py-4 text-sm font-extrabold text-white btn-primary transition duration-200">
+                  <i class="fa-solid fa-language"></i>
+                  Translate
+                </button>
+
+                <button id="clearBtn" type="button" class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold text-slate-700 transition hover:bg-slate-50">
+                  <i class="fa-solid fa-eraser"></i>
+                  Clear
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <!-- Output Panel -->
+        <aside class="glass rounded-[28px] p-5 sm:p-7 lg:p-8">
+          <div class="mb-6 flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-extrabold tracking-tight text-slate-900">Translated result</h2>
+              <p class="mt-1 text-sm text-slate-500">Readable output appears here after submission.</p>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-xs font-semibold text-emerald-700">
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+              Output
+            </div>
+          </div>
+
+          <div class="rounded-[24px] border border-dashed border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5 sm:p-6 scrollbar min-h-[360px] max-h-[420px] overflow-y-auto">
+            <div class="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+              <i class="fa-solid fa-circle-info"></i>
+              Output
+            </div>
+
+            {% if translated_text %}
+              <div class="text-[16px] leading-8 text-slate-800 whitespace-pre-wrap break-words">{{ translated_text }}</div>
+            {% else %}
+              <div class="text-slate-400 text-sm leading-7">
+                Your translated text will appear here.
+                <br><br>
+                Choose <strong>English → Yoruba</strong> or <strong>Yoruba → English</strong>, type your text, and click <strong>Translate</strong>.
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="mt-5 grid gap-3 sm:grid-cols-2">
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <div class="text-xs font-bold uppercase tracking-wide text-slate-400">Source</div>
+              <div id="sourceLabel" class="mt-1 text-sm font-semibold text-slate-700">English</div>
+            </div>
+            <div class="rounded-2xl bg-slate-50 p-4">
+              <div class="text-xs font-bold uppercase tracking-wide text-slate-400">Target</div>
+              <div id="targetLabel" class="mt-1 text-sm font-semibold text-slate-700">Yoruba</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="border-t border-white/70 bg-white/50 backdrop-blur-xl">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
+        <p class="text-sm text-slate-500">&copy; <span id="year"></span> Olaneye Aishat | All rights reserved.</p>
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">Yoruba • English</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sourceLang = document.getElementById('source_language');
+    const targetLang = document.getElementById('target_language');
+    const inputHint = document.getElementById('inputHint');
+    const sourceLabel = document.getElementById('sourceLabel');
+    const targetLabel = document.getElementById('targetLabel');
+    const swapBtn = document.getElementById('swapBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const inputText = document.getElementById('inputText');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const names = { en: 'English', yo: 'Yoruba' };
+
+    function syncLabels() {
+      sourceLabel.textContent = names[sourceLang.value];
+      targetLabel.textContent = names[targetLang.value];
+      inputHint.textContent = `${names[sourceLang.value]} → ${names[targetLang.value]}`;
+      inputText.placeholder = sourceLang.value === 'en'
+        ? 'Type English text here...'
+        : 'Kọ ọrọ Yoruba rẹ si ibi...';
+    }
+
+    function ensureOppositeLanguages(changedSelect) {
+      if (sourceLang.value === targetLang.value) {
+        if (changedSelect === sourceLang) {
+          targetLang.value = sourceLang.value === 'en' ? 'yo' : 'en';
+        } else {
+          sourceLang.value = targetLang.value === 'en' ? 'yo' : 'en';
+        }
+      }
+      syncLabels();
+    }
+
+    sourceLang.addEventListener('change', () => ensureOppositeLanguages(sourceLang));
+    targetLang.addEventListener('change', () => ensureOppositeLanguages(targetLang));
+
+    swapBtn.addEventListener('click', () => {
+      const temp = sourceLang.value;
+      sourceLang.value = targetLang.value;
+      targetLang.value = temp;
+      syncLabels();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      inputText.value = '';
+
+      const outputBox = document.querySelector('.scrollbar');
+      outputBox.innerHTML = `
+        <div class="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-slate-400">
+          <i class="fa-solid fa-circle-info"></i>
+          Output
+        </div>
+        <div class="text-slate-400 text-sm leading-7">
+          Your translated text will appear here.
+          <br><br>
+          Choose <strong>English → Yoruba</strong> or <strong>Yoruba → English</strong>, type your text, and click <strong>Translate</strong>.
+        </div>
+      `;
+
+      inputText.focus();
+    });
+
+    syncLabels();
+  </script>
+</body>
+</html>
